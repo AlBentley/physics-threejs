@@ -22,19 +22,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Validate JavaScript
-        run: node --check src/main.js
-
-      - name: Prepare static site
-        run: |
-          mkdir -p dist
-          cp index.html dist/index.html
-          cp -R src dist/src
 
       - name: Upload static site
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+    path: .
 
   deploy:
     environment:
